@@ -17,6 +17,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        //Create an admin User to connect and create new users
         $newUser = new User();
         $newUser->setFirstname('dev');
         $newUser->setLastname('symfony');
