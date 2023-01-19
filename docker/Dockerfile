@@ -18,7 +18,7 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     #install-php-extensions amqp apcu bcmath exif gd grpc imap intl ldap mcrypt opcache sockets uuid xdebug yaml zip
-    install-php-extensions pdo_mysql
+    install-php-extensions pdo_mysql intl
 
 # Get latest Composer
 COPY --from=composer:2.4.2 /usr/bin/composer /usr/bin/composer
