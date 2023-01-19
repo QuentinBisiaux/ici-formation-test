@@ -13,6 +13,7 @@ class LoginController extends AbstractController
 {
 
     /**
+     * @IsGranted("PUBLIC_ACCESS")
      * @Route("/login-form", name="app_login_form", methods={"GET"})
      */
     public function index(): Response
