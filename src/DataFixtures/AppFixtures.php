@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
             'password'
         );
         $newUser->setPassword($password);
-        $newUser->setPhoneNumber('+33011223344');
+        $newUser->setPhoneNumber('0122334455');
         $newUser->setRoles(['ROLE_ADMIN']);
         $manager->persist($newUser);
         $manager->flush();

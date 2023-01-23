@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
 {
@@ -26,7 +27,6 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('lastname', TextType::class, [
                 'required' => true,
-                'attr' => ['class' => 'form-control'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Renseigner un Nom',
@@ -37,26 +37,28 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password', 'class' => 'form-control'],
+                'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Renseigner un mot de passe',
                     ]),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
+                        'min' => 8,
+                        'minMessage' => 'Votre mot de passe doit faire au moins {{ limit }} caractères',
                         'max' => 4096,
                     ]),
                 ],
             ])
             ->add('phoneNumber', TextType::class, [
                 'required' => true,
-                'attr' => ['class' => 'form-control'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Renseigner un numéro de téléphone',
-                    ])
+                    ]),
+                    new Regex(
+                        '/^0[1-9]([0-9]{2}){4}$/i',
+                        'Numéro non valable, veuillez indiquer un numéro sous le format 0011223344'
+                    )
                 ]
             ])
         ;

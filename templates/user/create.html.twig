@@ -10,7 +10,7 @@
         <div class="mb-3">
             {{ form_label(registrationForm.firstname, 'Prénom', {'attr': {'class': 'form-label'}}) }}
             {{ form_widget(registrationForm.firstname, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(registrationForm.firstname) }}
+            {{ form_errors(registrationForm.firstname, {'attr': {'class': 'alert alert-danger'}}) }}
         </div>
         <div class="mb-3">
             {{ form_label(registrationForm.lastname, 'Nom', {'attr': {'class': 'form-label'}}) }}
