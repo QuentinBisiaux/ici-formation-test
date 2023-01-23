@@ -57,7 +57,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Regex(
                         '/^0[1-9]([0-9]{2}){4}$/i',
-                        'Numéro non valable, veuillez indiquer un numéro sous le format 0011223344'
+                        'Numéro non valable, veuillez indiquer un numéro sous le format 0122334455'
                     )
                 ]
             ])
