@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container mb-4">
+        <h1 class="mb-4">Créer un utilisateur</h1>
+
+        {{ form_start(registrationForm) }}
+        <div class="mb-3">
+            {{ form_label(registrationForm.firstname, 'Prénom', {'attr': {'class': 'form-label'}}) }}
+            {{ form_widget(registrationForm.firstname, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.firstname) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registrationForm.lastname, 'Nom', {'attr': {'class': 'form-label'}}) }}
+            {{ form_widget(registrationForm.lastname, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.lastname) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registrationForm.plainPassword, 'Mot de Passe', {'attr': {'class': 'form-label'}}) }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(registrationForm.phoneNumber, 'Numéro de téléphone', {'attr': {'class': 'form-label'}}) }}
+            {{ form_widget(registrationForm.phoneNumber, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.phoneNumber) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Register</button>
+        {{ form_end(registrationForm) }}
+    </div>
+
+{% endblock %}

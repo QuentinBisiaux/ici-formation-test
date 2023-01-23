@@ -56,6 +56,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->save($user, true);
     }
 
+    /**
+     * Get The last Id registered and add 1 to setup username
+     */
+    public function getLastInsertIdForUsername(): int
+    {
+        $user =  $this->createQueryBuilder('u')
+            ->orderBy('u.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()[0]
+        ;
+        return $user->getId() + 1;
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */
