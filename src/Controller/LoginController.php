@@ -13,6 +13,7 @@ class LoginController extends AbstractController
 {
 
     /**
+     * Display the login form
      * @IsGranted("PUBLIC_ACCESS")
      * @Route("/login-form", name="app_login_form", methods={"GET"})
      */
@@ -25,6 +26,7 @@ class LoginController extends AbstractController
     }
 
     /**
+     * Login a user
      * @Route("/login", name="app_login", methods={"POST"})
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
@@ -39,6 +41,7 @@ class LoginController extends AbstractController
     }
 
     /**
+     * logout user
      * @IsGranted("ROLE_USER")
      * @Route("/logout", name="app_logout", methods={"GET"})
      */

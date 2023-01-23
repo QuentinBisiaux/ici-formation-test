@@ -16,6 +16,9 @@ class LoginSuccessListener
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * Update Last connection of a user when he logs in
+     */
     public function __invoke(LoginSuccessEvent $event): void
     {
         /** @var User $user */

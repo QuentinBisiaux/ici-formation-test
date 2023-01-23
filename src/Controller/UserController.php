@@ -16,6 +16,7 @@ class UserController extends AbstractController
 {
 
     /**
+     * Display all users and button to access user's creation
      * @Route("/users", name="app_user", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
@@ -27,6 +28,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * create a user
      * @Route("/user/create", name="user_create", methods={"GET", "POST"})
      */
     public function create(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
