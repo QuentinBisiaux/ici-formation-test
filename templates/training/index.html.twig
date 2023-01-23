@@ -3,37 +3,38 @@
 {% block title %}Training index{% endblock %}
 
 {% block body %}
-    <h1>Training index</h1>
+    <div class="container">
+        <h1 class="mt-4">Mes Formations</h1>
 
-    <table class="table">
-        <thead>
+        <table class="table">
+            <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Créée le </th>
+                <th>Editée le</th>
+                <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for training in trainings %}
-            <tr>
-                <td>{{ training.id }}</td>
-                <td>{{ training.name }}</td>
-                <td>{{ training.createdAt ? training.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ training.updatedAt ? training.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_training_show', {'id': training.id}) }}">show</a>
-                    <a href="{{ path('app_training_edit', {'id': training.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for training in trainings %}
+                <tr>
+                    <td>{{ training.name }}</td>
+                    <td>{{ training.createdAt ? training.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ training.updatedAt ? training.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_training_show', {'id': training.id}) }}">Détails</a>
+                        <a href="{{ path('app_training_edit', {'id': training.id}) }}">Editer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Pas de formations enregistrées</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_training_new') }}">Create new</a>
+        <a href="{{ path('app_training_new') }}" class="btn btn-primary">Ajouter une formation</a>
+    </div>
+
 {% endblock %}

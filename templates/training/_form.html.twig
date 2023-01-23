@@ -1,4 +1,6 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_label(form.name, 'Prénom', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.name) }}
+    <button class="btn btn-success my-3">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

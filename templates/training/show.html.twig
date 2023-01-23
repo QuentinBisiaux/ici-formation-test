@@ -3,32 +3,30 @@
 {% block title %}Training{% endblock %}
 
 {% block body %}
-    <h1>Training</h1>
+    <div class="container">
+        <h1 class="mt-4">Formation {{ training.id }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ training.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ training.name }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ training.createdAt ? training.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ training.updatedAt ? training.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ training.name }}</td>
+                </tr>
+                <tr>
+                    <th>Créée le </th>
+                    <td>{{ training.createdAt ? training.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Editée le </th>
+                    <td>{{ training.updatedAt ? training.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_training_index') }}">back to list</a>
+        <a href="{{ path('app_training_index') }}" class="btn btn-secondary mb-5">Retour à la liste</a>
 
-    <a href="{{ path('app_training_edit', {'id': training.id}) }}">edit</a>
+        <a href="{{ path('app_training_edit', {'id': training.id}) }}"  class="btn btn-primary ml-3 mb-5">Editer</a>
 
-    {{ include('training/_delete_form.html.twig') }}
+        {{ include('training/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
